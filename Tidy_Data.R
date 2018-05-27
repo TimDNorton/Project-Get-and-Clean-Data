@@ -30,7 +30,7 @@ tidy_data<-function(x){
         
         DT$Subject<-as.factor(DT$Subject)
         DT$Type_of_Exersize<-as.factor(DT$Type_of_Exersize)
-        
+        write.csv(DT, file = "tidy_data1.csv")
         return(DT)
         
 }
@@ -39,5 +39,6 @@ tidy_data2<-function(DT){
     DT_means<-DT %>%
         group_by(Subject, Type_of_Exersize) %>%
         summarise_all(funs(mean))
+    write.csv(DT_means, file="tidy_data.csv")
     return(DT_means)
 }
